@@ -4,7 +4,16 @@
   <artifactId>zz-si-hols</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>Si Hols</name>
-  
+  <dependencies>
+	  <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+	  <dependency>
+		  <groupId>org.projectlombok</groupId>
+		  <artifactId>lombok</artifactId>
+		  <version>1.18.10</version>
+		  <scope>provided</scope>
+	  </dependency>
+
+  </dependencies>
   <build>
 		<plugins>
 			<plugin>
