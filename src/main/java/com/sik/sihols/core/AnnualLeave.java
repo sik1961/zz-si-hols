@@ -2,10 +2,12 @@ package com.sik.sihols.core;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 @Getter
 @Builder
+@ToString
 public class AnnualLeave implements Comparable<AnnualLeave> {
     private LocalDateTime startDate;
     private HalfDay startHalf;
