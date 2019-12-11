@@ -22,13 +22,16 @@ public class HolsReporter {
                 .forEach(a -> print(a));
 
         System.out.println("");
-        System.out.println(String.format("Total booked: %s/%s (%s%%)", mgr.getTotalBooked(),
+        System.out.println(String.format("Total booked: %s/%s (%s%%)",
+                mgr.getTotalBooked(),
                 mgr.getAnnualEntitlement(),
                 DF.format((mgr.getTotalBooked()/mgr.getAnnualEntitlement())*100)));
-        System.out.println(String.format("Total taken : %s/%s (%s%%)", mgr.getTotalTaken(),
+        System.out.println(String.format("Total taken : %s/%s (%s%%)",
+                mgr.getTotalTaken(),
                 mgr.getAnnualEntitlement(),
                 DF.format((mgr.getTotalTaken()/mgr.getAnnualEntitlement())*100)));
-        System.out.println(String.format("Days elapsed: %s (%s%%)", mgr.getHolidayYearStart().until(mgr.getToday(), ChronoUnit.DAYS),
+        System.out.println(String.format("Days elapsed: %s (%s%%)",
+                mgr.getHolidayYearStart().until(mgr.getToday(), ChronoUnit.DAYS),
                 DF.format((mgr.getHolidayYearStart().until(mgr.getToday(), ChronoUnit.DAYS)/DIY)*100)));
 
     }
