@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class AnnualLeaveManager {
-    private static final String PASTED_HOLS = "src/main/resources/pasted_hols.txt";
     private static final String RGX_SPACES = "\\s+";
     private static final String SPC = " ";
     private static final String AM = "AM";
@@ -36,10 +35,10 @@ public class AnnualLeaveManager {
 
     private Collection<AnnualLeave> annualLeaveSet;
 
-    public AnnualLeaveManager() {
+    public AnnualLeaveManager(String fileName) {
         this.totalBooked = 0.0F;
         this.totalTaken = 0.0F;
-        this.annualLeaveSet = this.readAnnualLeave(PASTED_HOLS);
+        this.annualLeaveSet = this.readAnnualLeave(fileName);
     }
 
     public Collection<AnnualLeave> getAnnualLeaveSet() {

@@ -7,14 +7,16 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class HolsReporter {
+    private static final String PASTED_HOLS = "src/main/resources/pasted_hols.txt";
     private static final DecimalFormat DF = new DecimalFormat("###.#");
     private static final String F_AL = "%16s - %16s %3s";
     private static final float DIY = 365.25F;
 
     public static void main(String[] args) {
+        reportAnnualLeave(new AnnualLeaveManager(PASTED_HOLS));
+    }
 
-        AnnualLeaveManager mgr = new AnnualLeaveManager();
-
+    private static void reportAnnualLeave(AnnualLeaveManager mgr) {
         System.out.println(String.format(F_AL, "Start", "End","Days"));
         System.out.println(String.format(F_AL, "-----", "---","----"));
 
@@ -33,7 +35,6 @@ public class HolsReporter {
         System.out.println(String.format("Days elapsed: %s (%s%%)",
                 mgr.getHolidayYearStart().until(mgr.getToday(), ChronoUnit.DAYS),
                 DF.format((mgr.getHolidayYearStart().until(mgr.getToday(), ChronoUnit.DAYS)/DIY)*100)));
-
     }
 
     private static void print(AnnualLeave annualLeave) {
