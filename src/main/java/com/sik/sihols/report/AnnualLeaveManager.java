@@ -99,8 +99,9 @@ public class AnnualLeaveManager {
 
     private Set<String> readLineByLine(String filePath) {
         Set<String> lines = new HashSet<>();
-        try (Stream<String> stream = Files.lines( Paths.get(filePath), StandardCharsets.UTF_8)) {
-            stream.forEach(s -> lines.add(s));
+        try (Stream<String> lineStream = Files.lines( Paths.get(filePath), StandardCharsets.UTF_8)) {
+            lineStream.filter(s -> !s.toString().isEmpty())
+                    .forEach(s -> lines.add(s));
         } catch (IOException e) {
             e.printStackTrace();
         }
