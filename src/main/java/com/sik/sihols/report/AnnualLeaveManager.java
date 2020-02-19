@@ -28,6 +28,7 @@ public class AnnualLeaveManager {
     private static float ANNUAL_ENTITLEMENT = 31.0F;
 
     private LocalDateTime holidayYearStart = LocalDateTime.of(CURRENT_YEAR, 4,1, 0,0,0);
+    private LocalDateTime holidayYearEnd = LocalDateTime.of(CURRENT_YEAR + 1, 4,1, 0,0,0);
     private LocalDateTime today = LocalDateTime.now();
 
     private float totalBooked;
@@ -65,6 +66,7 @@ public class AnnualLeaveManager {
         return annualLeaveSet = this.readLineByLine(fileName).stream()
                 .map(a -> this.buildAnnualLeave(a))
                 .filter(a -> a.getStartDate().isAfter(holidayYearStart))
+                .filter(a -> a.getStartDate().isBefore(holidayYearEnd))
                 .sorted()
                 .map(this::updateStats)
                 .collect(Collectors.toList());
