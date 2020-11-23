@@ -24,8 +24,8 @@ public class AnnualLeaveManager {
     private static final String AM_START_TIME = " 08:00:00 AM";
     private static final String PM_START_TIME = " 12:00:00 PM";
 
-    private static final int CURRENT_YEAR = 2019;
-    private static float ANNUAL_ENTITLEMENT = 31.0F;
+    private static final int CURRENT_YEAR = 2020;
+    private static float ANNUAL_ENTITLEMENT = 26.0F + 5.0F + 2.0F ;
 
     private LocalDateTime holidayYearStart = LocalDateTime.of(CURRENT_YEAR, 4,1, 0,0,0);
     private LocalDateTime holidayYearEnd = LocalDateTime.of(CURRENT_YEAR + 1, 4,1, 0,0,0);
